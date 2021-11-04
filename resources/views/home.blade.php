@@ -14,3 +14,4 @@
 </body>
 
 </html>
+<!--Esta vista es de web.php para la direccion home-->
