@@ -33,3 +33,15 @@ Route::group(['prefix' => 'admin'], function () { //El prefijo es admin, por end
 
 //Ruta admin
 //Route::get('/admin/{name}', 'App\Http\Controllers\AdminController@index'); //Envio de datos
+
+
+/*
+ $table->increments('id');
+            $table->string('name');
+            $table->integer('hp');
+            $table->integer('atq');
+            $table->integer('def');
+            $table->integer('luck');
+            $table->integer('coins');
+            $table->integer('xp');
+*/
