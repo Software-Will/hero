@@ -40,8 +40,19 @@ class BSController extends Controller
                 } else {
                     $ev = [
                         "winner" => "hero",
-                        "text" => $hero->name . " acabó con la vida de " . $enemy->name
+                        "text" => $hero->name . " acabó con la vida de " . $enemy->name . " ganando " . $enemy->xp . " xp"
                     ];
+
+                    $hero->xp = $hero->xp + $enemy->xp; //aumentando la experiencia del heroe
+
+                    if ($hero->xp >= $hero->level->xp) { //si es mayor o igual a los xp de la table levels
+                        $hero->xp = 0; //reseteo de nivel para siguiente nivel
+                        $hero->level_id += 1; //aumento de nivel
+                    }
+
+                    //dd($hero->xp);
+
+                    $hero->save(); //guardamos xp
                 }
 
                 //print("Enemy HP: " . $enemy->hp . "<br/>");

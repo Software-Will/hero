@@ -9,4 +9,9 @@ class Hero extends Model
 {
     //    use HasFactory;
     protected $table = 'heroes';
+
+    public function level()
+    {
+        return $this->hasOne("App\Models\Level", "id", "level_id"); //relacion con modelo level
+    }
 }
