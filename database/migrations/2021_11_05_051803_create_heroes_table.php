@@ -14,7 +14,7 @@ class CreateHeroesTable extends Migration
     public function up()
     {
         Schema::create('heroes', function (Blueprint $table) { //$table objeto de la tabla heroes
-            $table->bigInteger('id');
+            $table->bigIncrements('id');
             $table->timestamps(); //funcion de laravel que nos create dos atributos,uno de create y otro de update para registrar cambios en las filas - tipo disparadores
             $table->string('name');
             $table->integer('hp');
