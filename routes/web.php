@@ -45,6 +45,9 @@ Route::group(['prefix' => 'admin'], function () { //El prefijo es admin, por end
     //
     Route::resource('item', 'App\Http\Controllers\ItemController');
     Route::resource('enemy', 'App\Http\Controllers\EnemyController');
+
+    //ruta de sistema de batallas - get pq no es en base a model
+    Route::get('bs', 'App\Http\Controllers\BSController@index')->name('admin.bs');
 });
 
 //Ruta admin

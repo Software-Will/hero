@@ -47,6 +47,10 @@
                     <a class="nav-link" href="{{ route('enemy.index') }}">Enemigos</a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.bs') }}">Sistema de batalla</a>
+                </li>
+
             </ul>
         </div>
     </nav>
