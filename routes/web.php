@@ -31,6 +31,8 @@ Route::group(['prefix' => 'admin'], function () { //El prefijo es admin, por end
         Route::get('/', 'App\Http\Controllers\HeroController@index')->name('admin.heroes');
         Route::get('create', 'App\Http\Controllers\HeroController@create')->name('admin.heroes.create');
         Route::post('store', 'App\Http\Controllers\HeroController@store')->name('admin.heroes.store'); //Envio de datos post
+        Route::get('edit/{id}', 'App\Http\Controllers\HeroController@edit')->name('admin.heroes.edit');
+        Route::post('update/{id}', 'App\Http\Controllers\HeroController@update')->name('admin.heroes.update');
     });
     //
     Route::get('items', 'App\Http\Controllers\ItemController@index')->name('admin.items'); //se define name para redireccionar

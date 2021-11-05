@@ -21,6 +21,7 @@
                     <th scope="col">Suerte</th>
                     <th scope="col">Monedas</th>
                     <th scope="col">Experencia</th>
+                    <th scope="col">Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -36,6 +37,11 @@
                         <td>{{ $hero->luck }}</td>
                         <td>{{ $hero->coins }}</td>
                         <td>{{ $hero->xp }}</td>
+                        <td>
+                            <a href="{{ route('admin.heroes.edit', ['id' => $hero->id]) }}"
+                                class="btn btn-warning mb-2">Modificar</a>
+                            <a href="{{ route('admin.heroes') }}" class="btn btn-danger mb-2">Borrar</a>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
