@@ -13,4 +13,10 @@ class HeroController extends Controller
 
         return view('admin.heroes.index', ['heroes' => $heroes]);
     }
+
+    //Metodo para retornar vista de heroe
+    public function create()
+    {
+        return view('admin.heroes.create');
+    }
 }

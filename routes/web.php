@@ -26,8 +26,13 @@ Route::get('/', function () {
 //Prefix -> Directivas de rutas, para evitar /
 Route::group(['prefix' => 'admin'], function () { //El prefijo es admin, por ende los /admin deben irse
     Route::get('/', 'App\Http\Controllers\AdminController@index')->name('admin.home');
-    Route::get('heroes', 'App\Http\Controllers\HeroController@index')->name('admin.heroes'); //se define name para redireccionar
-    Route::get('items', 'App\Http\Controllers\ItemController@index')->name('admin.items');
+    //Prefix para heroes 
+    Route::group(['prefix' => 'heroes'], function () {
+        Route::get('/', 'App\Http\Controllers\HeroController@index')->name('admin.heroes');
+        Route::get('create', 'App\Http\Controllers\HeroController@create')->name('admin.heroes.create');
+    });
+    //
+    Route::get('items', 'App\Http\Controllers\ItemController@index')->name('admin.items'); //se define name para redireccionar
     Route::get('enemies', 'App\Http\Controllers\EnemyController@index')->name('admin.enemies');
 });
 
