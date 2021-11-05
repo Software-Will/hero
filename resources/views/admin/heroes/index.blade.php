@@ -17,16 +17,20 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>{{ $heroes[0]->name }}</td>
-                <td>10</td>
-                <td>5</td>
-                <td>5</td>
-                <td>15</td>
-                <td>150</td>
-                <td>100</td>
-            </tr>
+            @foreach ($heroes as $hero)
+                <!--Foreach para muestrear todos los datos de la bd-->
+                <tr>
+                    <th scope="row">{{ $hero->id }}</th>
+                    <td>{{ $hero->name }}</td>
+                    <!--fila -> atributo de la tabla heroe-->
+                    <td>{{ $hero->hp }}</td>
+                    <td>{{ $hero->atq }}</td>
+                    <td>{{ $hero->def }}</td>
+                    <td>{{ $hero->luck }}</td>
+                    <td>{{ $hero->coins }}</td>
+                    <td>{{ $hero->xp }}</td>
+                </tr>
+            @endforeach
         </tbody>
     </table>
 @endsection
