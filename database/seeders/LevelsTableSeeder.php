@@ -14,6 +14,11 @@ class LevelsTableSeeder extends Seeder //componente para inicializar inserccion 
      */
     public function run()
     {
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=0'); //Resetea las claves foraneas en heroes y el autoincrementable en levels
+
+        DB::table('levels')->truncate(); //reseteo de tabla
+
         $xp = 100;
         for ($i = 0; $i < 10; $i++) {
             $xp = $xp * 2;
