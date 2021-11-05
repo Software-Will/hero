@@ -38,9 +38,23 @@
                         <td>{{ $hero->coins }}</td>
                         <td>{{ $hero->xp }}</td>
                         <td>
-                            <a href="{{ route('admin.heroes.edit', ['id' => $hero->id]) }}"
-                                class="btn btn-warning mb-2">Modificar</a>
-                            <a href="{{ route('admin.heroes') }}" class="btn btn-danger mb-2">Borrar</a>
+                            <div class="row">
+
+                                <div class="col">
+                                    <a href="{{ route('admin.heroes.edit', ['id' => $hero->id]) }}"
+                                        class="btn btn-warning mb-2">Modificar</a>
+                                </div>
+
+                                <div class="col">
+                                    <form action="{{ route('admin.heroes.destroy', ['id' => $hero->id]) }}"
+                                        method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <!--El metodo reconoce que delete lo va a destruir-->
+                                        <button type="submit" class="btn btn-danger">Borrar</button>
+                                    </form>
+                                </div>
+                            </div>
                         </td>
                     </tr>
                 @endforeach

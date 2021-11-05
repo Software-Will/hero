@@ -65,4 +65,14 @@ class HeroController extends Controller
 
         return redirect()->route('admin.heroes');
     }
+
+    //Metodo destroy 
+    public function destroy($id)
+    {
+        $hero = Hero::find($id); //GET
+
+        $hero->delete(); //Elimina la fila segun id
+
+        return redirect()->route('admin.heroes'); //REFRESCAMOS
+    }
 }
