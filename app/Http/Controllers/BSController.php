@@ -70,10 +70,14 @@ class BSController extends Controller
             array_push($events, $ev); //setea datos en el arreglo eventos de enemigo y heroe
         }
 
-        dd($events);
+        //dd($events);
 
         //dd($enemy); //Muestra los atributos en linea del model en pantalla
 
-        //return view('admin.bs.index'); //vista de batallas
+        return view('admin.bs.index', [
+            "events" => $events,
+            "heroName" => $hero->name,
+            "enemyName" => $enemy->name
+        ]); //vista de batallas y envio de eventos
     }
 }
