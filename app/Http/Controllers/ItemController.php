@@ -25,7 +25,7 @@ class ItemController extends Controller
      */
     public function create()
     {
-        return view('admin.items.create');
+        return view('admin.items.create'); //Direccion de ficheros no de sistema de rutas
     }
 
     /**
@@ -58,7 +58,8 @@ class ItemController extends Controller
      */
     public function edit($id)
     {
-        //
+        $item = Item::find($id);
+        return view('admin.items.edit', ['item' => $item]); //Direccion de ficheros
     }
 
     /**
@@ -81,7 +82,11 @@ class ItemController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = Item::find($id);
+
+        $item->delete();
+
+        return redirect()->route('item.index');
     }
 
     //Metodo para guardar o editar un item sea para update o insert (store)
