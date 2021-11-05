@@ -1,10 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1 style="margin-top: 10px;">Lista de Heroes</h1>
+    <div class="row">
+        <h1>Lista de Heroes</h1>
+    </div>
 
-    <div class="row" style="margin-top: 10px;">
-        <a href="{{ route('admin.heroes.create') }}" class="btn btn-primary">Crear</a>
+    <div class="row">
+        <a href="{{ route('admin.heroes.create') }}" class="btn btn-primary mb-2">Crear</a>
     </div>
 
     <div class="row" style="margin-top:10px;">
