@@ -36,7 +36,7 @@
         </div>
 
         <div class="form-group">
-            <label for="xp">Monedas</label>
+            <label for="xp">Experiencia</label>
             <input type="number" class="form-control" id="xp" name="xp" placeholder="Ingrese la experiencia" min=0
                 required>
         </div>
