@@ -23,9 +23,13 @@ Route::get('/', function () {
 //return "Hola " . $name . "! Como estas hoy?"; //laravel lo autoformatea a html
 //})->where('name', '[A-Za-z]+'); //Expresion regular plus para solo considerar caracteres y no numeros
 
+//Prefix -> Directivas de rutas, para evitar /
+Route::group(['prefix' => 'admin'], function () { //El prefijo es admin, por ende los /admin deben irse
+    Route::get('/', 'App\Http\Controllers\AdminController@index')->name('admin.home');
+    Route::get('heroes', 'App\Http\Controllers\HeroController@index')->name('admin.heroes'); //se define name para redireccionar
+    Route::get('items', 'App\Http\Controllers\ItemController@index')->name('admin.items');
+    Route::get('enemies', 'App\Http\Controllers\EnemyController@index')->name('admin.enemies');
+});
+
 //Ruta admin
 //Route::get('/admin/{name}', 'App\Http\Controllers\AdminController@index'); //Envio de datos
-Route::get('/admin', 'App\Http\Controllers\AdminController@index')->name('admin.home');
-Route::get('/admin/heroes', 'App\Http\Controllers\HeroController@index')->name('admin.heroes'); //se define name para redireccionar
-Route::get('/admin/items', 'App\Http\Controllers\ItemController@index')->name('admin.items');
-Route::get('/admin/enemies', 'App\Http\Controllers\EnemyController@index')->name('admin.enemies');
