@@ -25,7 +25,7 @@ class ItemController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.items.create');
     }
 
     /**
@@ -36,7 +36,7 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $this->saveItems($request, null);
     }
 
     /**
@@ -70,7 +70,7 @@ class ItemController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return $this->saveItems($request, $id);
     }
 
     /**
@@ -82,5 +82,27 @@ class ItemController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    //Metodo para guardar o editar un item sea para update o insert (store)
+    public function saveItems(Request $request, $id)
+    {
+        if ($id) { //Si existe el id se realiza el get para el update, sino crea uno nuevo
+            $item = Item::find($id); //GET - para editar item
+        } else {
+            $item = new Item(); //Objeto del modelo item para insertar un nuevo item
+        }
+        //Seteo de atributos, mediante la captura, sea update o store
+        $item->name = $request->input('name');
+        $item->hp = $request->input('hp');
+        $item->atq = $request->input('atq');
+        $item->def = $request->input('def');
+        $item->luck = $request->input('luck');
+        $item->cost = $request->input('cost');
+
+        $item->save(); //se guarda directamente en la bd
+
+        //return redirect()->route('admin.heroes'); - asi es antes de implementar resource controller
+        return redirect()->route('item.index');
     }
 }

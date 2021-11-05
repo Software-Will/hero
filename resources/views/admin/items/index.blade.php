@@ -34,7 +34,7 @@
                         <td>{{ $item->atq }}</td>
                         <td>{{ $item->def }}</td>
                         <td>{{ $item->luck }}</td>
-                        <td>{{ $item->coins }}</td>
+                        <td>{{ $item->cost }}</td>
                         <td>
                             <div class="row">
 
