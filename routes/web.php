@@ -43,7 +43,7 @@ Route::group(['prefix' => 'admin'], function () { //El prefijo es admin, por end
     });*/
 
     //
-    Route::get('items', 'App\Http\Controllers\ItemController@index')->name('admin.items'); //se define name para redireccionar
+    Route::resource('item', 'App\Http\Controllers\ItemController');
     Route::get('enemies', 'App\Http\Controllers\EnemyController@index')->name('admin.enemies');
 });
 
