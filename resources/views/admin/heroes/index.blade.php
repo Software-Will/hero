@@ -6,7 +6,7 @@
     </div>
 
     <div class="row">
-        <a href="{{ route('admin.heroes.create') }}" class="btn btn-primary mb-2">Crear</a>
+        <a href="{{ route('heroes.create') }}" class="btn btn-primary mb-2">Crear</a>
     </div>
 
     <div class="row" style="margin-top:10px;">
@@ -41,13 +41,12 @@
                             <div class="row">
 
                                 <div class="col">
-                                    <a href="{{ route('admin.heroes.edit', ['id' => $hero->id]) }}"
+                                    <a href="{{ route('heroes.edit', ['hero' => $hero->id]) }}"
                                         class="btn btn-warning mb-2">Modificar</a>
                                 </div>
 
                                 <div class="col">
-                                    <form action="{{ route('admin.heroes.destroy', ['id' => $hero->id]) }}"
-                                        method="post">
+                                    <form action="{{ route('heroes.destroy', ['hero' => $hero->id]) }}" method="post">
                                         @csrf
                                         @method('DELETE')
                                         <!--El metodo reconoce que delete lo va a destruir-->

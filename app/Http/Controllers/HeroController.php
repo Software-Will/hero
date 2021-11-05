@@ -11,7 +11,7 @@ class HeroController extends Controller
     {
         $heroes = Hero::all();
 
-        return view('admin.heroes.index', ['heroes' => $heroes]);
+        return view('admin.heroes.index', ['heroes' => $heroes]); //es la ruta de carpetas no de action, pasa objeto heroes
     }
 
     //Metodo para retornar vista de insertar heroe
@@ -33,7 +33,7 @@ class HeroController extends Controller
     public function edit($id)
     {
         $hero = Hero::find($id); //Nos devuelve el registro segun el id -> GET
-        return view('admin.heroes.edit', ['hero' => $hero]);
+        return view('admin.heroes.edit', ['hero' => $hero]); //Fijate en el nombre id en las vistas
     }
 
     //Metodo update para efectura la actualizacion de datos
@@ -63,7 +63,8 @@ class HeroController extends Controller
 
         $hero->save(); //se guarda directamente en la bd
 
-        return redirect()->route('admin.heroes');
+        //return redirect()->route('admin.heroes'); - asi es antes de implementar resource controller
+        return redirect()->route('heroes.index');
     }
 
     //Metodo destroy 
@@ -73,6 +74,7 @@ class HeroController extends Controller
 
         $hero->delete(); //Elimina la fila segun id
 
-        return redirect()->route('admin.heroes'); //REFRESCAMOS
+        //  return redirect()->route('admin.heroes'); //REFRESCAMOS
+        return redirect()->route('heroes.index'); //REFRESCAMOS
     }
 }

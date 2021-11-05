@@ -3,9 +3,11 @@
 @section('content')
     <h1>Editar Heroe</h1>
 
-    <form action="{{ route('admin.heroes.update', ['id' => $hero->id]) }}" method="post">
+    <form action="{{ route('heroes.update', ['hero' => $hero->id]) }}" method="post">
         <!--se tiene que pasar id del heroe para update-->
         @csrf
+        @method('PUT')
+        <!--update-->
         <!--accion sale del controlador de hero-->
         <div class="form-group">
             <label for="name">Nombre</label>

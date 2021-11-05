@@ -3,7 +3,7 @@
 @section('content')
     <h1>Crear Nuevo Heroe</h1>
 
-    <form action="{{ route('admin.heroes.store') }}" method="post">
+    <form action="{{ route('heroes.store') }}" method="post">
         @csrf
         <!--accion sale del controlador de hero-->
         <div class="form-group">

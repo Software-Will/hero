@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HeroController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +26,12 @@ Route::get('/', function () {
 
 //Prefix -> Directivas de rutas, para evitar /
 Route::group(['prefix' => 'admin'], function () { //El prefijo es admin, por ende los /admin deben irse
-    Route::get('/', 'App\Http\Controllers\AdminController@index')->name('admin.home');
+    Route::get('/', 'App\Http\Controllers\AdminController@index')->name('admin.index');
+
+    //Implementacion de resource controller
+    Route::resource('heroes', 'App\Http\Controllers\HeroController');
+
+    /*
     //Prefix para heroes 
     Route::group(['prefix' => 'heroes'], function () {
         Route::get('/', 'App\Http\Controllers\HeroController@index')->name('admin.heroes');
@@ -34,7 +40,8 @@ Route::group(['prefix' => 'admin'], function () { //El prefijo es admin, por end
         Route::get('edit/{id}', 'App\Http\Controllers\HeroController@edit')->name('admin.heroes.edit');
         Route::post('update/{id}', 'App\Http\Controllers\HeroController@update')->name('admin.heroes.update');
         Route::delete('destroy/{id}', 'App\Http\Controllers\HeroController@destroy')->name('admin.heroes.destroy'); //mira el tipo de ruta 
-    });
+    });*/
+
     //
     Route::get('items', 'App\Http\Controllers\ItemController@index')->name('admin.items'); //se define name para redireccionar
     Route::get('enemies', 'App\Http\Controllers\EnemyController@index')->name('admin.enemies');
