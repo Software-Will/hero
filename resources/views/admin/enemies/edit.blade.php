@@ -3,7 +3,7 @@
 @section('content')
     <h1>Editar Heroe - {{ $enemy->name }}</h1>
 
-    <form action="{{ route('enemy.update', ['enemy' => $enemy->id]) }}" method="post">
+    <form action="{{ route('enemy.update', ['enemy' => $enemy->id]) }}" method="post" encrypte="multipart/form-data">>
         <!--se tiene que pasar id del heroe para update-->
         @csrf
         @method('PUT')

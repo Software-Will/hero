@@ -106,6 +106,22 @@ class EnemyController extends Controller
         $enemy->coins = $request->input('coins');
         $enemy->xp = $request->input('xp');
 
+        //hay una imagen? CLASE 98
+        /*if ($request->hasFile('img_path')) {
+            $file = $request->file('img_path');
+            $name = time() . '_' . $file->getClientOriginalName(); //esta funcion evita el doble seteo de img_path
+            $destinationPath = public_path('/images/enemies/'); //me quede en la clase 98
+            $file->move($destinationPath, $name); //para guardado local
+
+            $enemy->img_path = $name;
+ 
+            //FORM.BLADE.PHP -> ENEMYS
+            <div class="form-group">
+      <label for="img_path">Imagen</label>
+      <input type="file" id="img_path" name="img_path" required>
+  </div>
+        }*/
+
         $enemy->save(); //se guarda directamente en la bd
 
         //return redirect()->route('admin.heroes'); - asi es antes de implementar resource controller

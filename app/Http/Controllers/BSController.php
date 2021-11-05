@@ -12,8 +12,7 @@ class BSController extends Controller
 
     public function index()
     {
-
-        dd($this->runManualBattle(1, 1));
+        //dd($this->runManualBattle(1, 1));
         return view('admin.bs.index', $this->runAutoBatle(1, 1)); //vista de batallas y llamado de funcion que retorna datos
     }
 
@@ -30,7 +29,7 @@ class BSController extends Controller
         while ($hero->hp > 0 && $enemy->hp > 0) {
             $luck = random_int(0, 100); //suerte valor random
 
-            if ($luck >= 50) { //Si es mayor a 50 el heroe pega
+            if ($luck >= $hero->luck) { //Si es mayor a 50 el heroe pega
                 $hp = $enemy->def - $hero->atq; //la defensa absorve el golpe
 
                 if ($hp < 0) {
@@ -104,7 +103,7 @@ class BSController extends Controller
 
         $luck = random_int(0, 100); //suerte valor random
 
-        if ($luck > 50) {
+        if ($luck > $hero->luck) {
             $hp = $enemy->def - $hero->atq; //la defensa absorve el golpe
 
             if ($hp < 0) {
